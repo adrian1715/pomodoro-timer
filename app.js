@@ -7,6 +7,9 @@ const timerDisplay = document.getElementById("timer");
 
 const timerButtons = document.getElementsByClassName("timer-btn");
 
+const pomodoros = document.getElementById("pomodoros");
+let pomodorosQty = 0;
+
 const hurtSound = document.getElementById("hurt-sound");
 const tetraSound = document.getElementById("tetra-sound");
 
@@ -25,6 +28,7 @@ function startTimer(timeInMin) {
     button.disabled = true;
   }
 
+  // let seconds = 2;
   let seconds = timeInMin * 60; // change it to test
   timer = setInterval(() => {
     seconds--;
@@ -44,6 +48,8 @@ function startTimer(timeInMin) {
       switch (timeInMin) {
         case 25:
           tetraSound.play();
+          pomodorosQty++;
+          pomodoros.innerText = pomodorosQty;
           break;
         case 5:
           hurtSound.play();
