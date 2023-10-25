@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron&display=swap");
 
+body {
+  background-color: #3f3f3f;
+  /* color: white; */
+}
+
 /* Apply the font to an element */
 #timer {
   text-align: center;
