@@ -48,15 +48,15 @@ function startTimer(timeInMin) {
       restartBtn.disabled = true;
       console.log("Timer stopped!");
 
-      switch (timeInMin) {
-        case 25:
-          tetraSound.play();
-          pomodorosQty++;
-          pomodoros.innerText = pomodorosQty;
-          break;
-        case 5:
-          hurtSound.play();
-          break;
+      if (isStudying && !onBreak) {
+        tetraSound.play();
+        pomodorosQty++;
+        pomodoros.innerText = pomodorosQty;
+        isStudying = false;
+      }
+      if (!isStudying && onBreak) {
+        hurtSound.play();
+        onBreak = false;
       }
     }
   }, 1000);
@@ -88,8 +88,17 @@ function restart() {
   timerDisplay.innerText = "00:00";
 }
 
-studyTimerBtn.addEventListener("click", () => startTimer(25));
-breakBtn.addEventListener("click", () => startTimer(5));
+let isStudying, onBreak;
+studyTimerBtn.addEventListener("click", () => {
+  isStudying = true;
+  onBreak = false;
+  startTimer(25);
+});
+breakBtn.addEventListener("click", () => {
+  isStudying = false;
+  onBreak = true;
+  startTimer(5);
+});
 
 pauseBtn.addEventListener("click", pause);
 restartBtn.addEventListener("click", restart);
