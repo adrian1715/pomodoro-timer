@@ -1,1 +1,2 @@
-# pomodoro-timer
+# Pomodoro Timer
+ Pomodoro Timer é um simples temporizador criado em JavaScript para o controle de tempo utilizando o método pomodoro. Ele permite com que se inicie um pomodoro (total de 25 minutos) ao clicar no botão "Start Studying" e iniciar um intervalo (total de 5 minutos) ao clicar no botão "Take a Break". Além disso, é possível também pausar e reiniciar o temporizador após o mesmo ser iniciado.
